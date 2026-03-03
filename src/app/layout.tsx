@@ -40,7 +40,7 @@ export default function RootLayout({
             <div className="col-lg-7 px-5 text-start">
               <div className="h-100 d-inline-flex align-items-center py-3 me-4">
                 <small className="fa fa-map-marker-alt text-primary me-2"></small>
-                <small>416118 Sanjay Ghodawat Polytechnic,Atigre</small>
+                <small>Pune ,Maharashra</small>
               </div>
             </div>
             <div className="col-lg-5 px-5 text-end">

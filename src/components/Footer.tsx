@@ -7,7 +7,7 @@ export default function Footer() {
                 <div className="row g-5">
                     <div className="col-lg-3 col-md-6">
                         <h4 className="text-light mb-4">Address</h4>
-                        <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>416118 Sanjay Ghodawat Polytechnic, Atigre</p>
+                        <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>Pune ,Maharashra</p>
                         <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 9307769415</p>
                         <p className="mb-2"><i className="fa fa-envelope me-3"></i>vault49812@gmail.com</p>
                         <div className="d-flex pt-2">
