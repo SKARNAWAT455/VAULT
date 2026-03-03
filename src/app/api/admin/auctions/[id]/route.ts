@@ -40,23 +40,20 @@ export async function DELETE(
     { params }: { params: { id: string } }
 ) {
     try {
-        const session = await getServerSession();
+        // FIX: Pass authOptions so session is correctly parsed
+        const session = await getServerSession(authOptions);
 
         if (!session || (session.user as any).role !== "ADMIN") {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 
-        // Delete associated bids first (or ensure cascade delete in prisma)
-        // For safety, we delete them here if not handled by DB
-        await prisma.bid.deleteMany({
-            where: { auctionId: params.id }
-        });
-
-        await prisma.auction.delete({
+        // Soft-delete: mark as DELETED so it appears in history, not erased from DB
+        const auction = await prisma.auction.update({
             where: { id: params.id },
+            data: { status: "DELETED" },
         });
 
-        return NextResponse.json({ message: "Auction deleted successfully" });
+        return NextResponse.json({ message: "Auction archived successfully", auction });
     } catch (error: any) {
         console.error("Auction deletion error:", error);
         return NextResponse.json({ error: error.message || "Internal server error" }, { status: 500 });

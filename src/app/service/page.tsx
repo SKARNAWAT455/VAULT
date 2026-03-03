@@ -4,7 +4,7 @@ export default function Service() {
     return (
         <>
             {/* Page Header Start */}
-            <div className="container-fluid page-header py-5 mb-5">
+            <div className="container-fluid page-header page-header-service py-5 mb-5">
                 <div className="container py-5">
                     <h1 className="display-3 text-white mb-3 animated slideInDown">Service</h1>
                     <nav aria-label="breadcrumb animated slideInDown"></nav>

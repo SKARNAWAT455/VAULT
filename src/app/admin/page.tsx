@@ -17,11 +17,15 @@ export default async function AdminDashboard() {
         totalAuctions: await prisma.auction.count(),
         activeAuctions: await prisma.auction.count({ where: { status: "ACTIVE" } }),
         totalBids: await prisma.bid.count(),
+        unreadMessages: await prisma.contactMessage.count({ where: { isRead: false } }),
     };
 
     const auctions = await prisma.auction.findMany({
+        where: { status: { not: "DELETED" } },
         orderBy: { createdAt: "desc" },
     });
+
+    const deletedCount = await prisma.auction.count({ where: { status: "DELETED" } });
 
     const bids = await prisma.bid.findMany({
         take: 5,
@@ -40,8 +44,24 @@ export default async function AdminDashboard() {
                         <h6 className="text-primary text-uppercase mb-2" style={{ letterSpacing: "2px" }}>Overview</h6>
                         <h1 className="display-5 mb-0">Management Console</h1>
                     </div>
-                    <div className="text-end">
-                        <Link href="/admin/auctions/new" className="btn btn-primary btn-lg shadow-sm px-4 py-3 border-0 transition-all hover-scale">
+                    <div className="text-end d-flex gap-2">
+                        <Link href="/admin/messages" className="btn btn-outline-primary btn-lg shadow-sm px-4 py-3 border position-relative">
+                            <i className="fa fa-envelope me-2"></i>Messages
+                            {stats.unreadMessages > 0 && (
+                                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {stats.unreadMessages}
+                                </span>
+                            )}
+                        </Link>
+                        <Link href="/admin/history" className="btn btn-outline-secondary btn-lg shadow-sm px-4 py-3 border position-relative">
+                            <i className="fa fa-history me-2"></i>History
+                            {deletedCount > 0 && (
+                                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                                    {deletedCount}
+                                </span>
+                            )}
+                        </Link>
+                        <Link href="/admin/auctions/new" className="btn btn-primary btn-lg shadow-sm px-4 py-3 border-0">
                             <i className="fa fa-plus me-2"></i>Create Auction
                         </Link>
                     </div>
@@ -75,6 +95,15 @@ export default async function AdminDashboard() {
                             <h6 className="opacity-75 mb-2">Bids Placed</h6>
                             <h2 className="display-6 fw-bold mb-0">{stats.totalBids}</h2>
                         </div>
+                    </div>
+                    <div className="col-md-3">
+                        <Link href="/admin/messages" className="text-decoration-none">
+                            <div className="p-4 rounded shadow-sm border-0 position-relative overflow-hidden h-100" style={{ background: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)" }}>
+                                <i className="fa fa-envelope position-absolute opacity-25" style={{ fontSize: "5rem", right: "-10px", bottom: "-10px" }}></i>
+                                <h6 className="opacity-75 mb-2 text-white">New Messages</h6>
+                                <h2 className="display-6 fw-bold mb-0 text-white">{stats.unreadMessages}</h2>
+                            </div>
+                        </Link>
                     </div>
                 </div>
 

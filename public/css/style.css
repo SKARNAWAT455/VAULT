@@ -248,6 +248,27 @@
     background-size: cover;
 }
 
+/* Per-page header backgrounds */
+.page-header-service {
+    background: linear-gradient(rgba(53, 53, 53, .6), rgba(53, 53, 53, .6)), url(../img/1.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.page-header-auction {
+    background: linear-gradient(rgba(53, 53, 53, .6), rgba(53, 53, 53, .6)), url(../img/2.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.page-header-whyus {
+    background: linear-gradient(rgba(53, 53, 53, .6), rgba(53, 53, 53, .6)), url(../img/3.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.page-header-contact {
+    background: linear-gradient(rgba(53, 53, 53, .6), rgba(53, 53, 53, .6)), url(../img/4.jpg) center center no-repeat;
+    background-size: cover;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);
 }

@@ -1,10 +1,46 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 export default function Contact() {
+    const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [errorMsg, setErrorMsg] = useState('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+        setErrorMsg('');
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (res.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '' });
+            } else {
+                const data = await res.json();
+                setErrorMsg(data.error || 'Something went wrong.');
+                setStatus('error');
+            }
+        } catch {
+            setErrorMsg('Network error. Please try again.');
+            setStatus('error');
+        }
+    };
+
     return (
         <>
             {/* Page Header Start */}
-            <div className="container-fluid page-header py-5 mb-5">
+            <div className="container-fluid page-header page-header-contact py-5 mb-5">
                 <div className="container py-5">
                     <h1 className="display-3 text-white mb-3 animated slideInDown">Contact</h1>
                     <nav aria-label="breadcrumb animated slideInDown"></nav>
@@ -21,34 +57,97 @@ export default function Contact() {
                                 <div className="section-title text-start">
                                     <h1 className="display-5 mb-4">Contact Us</h1>
                                 </div>
-                                <form action="https://formsubmit.co/vault49812@email.com" method="POST">
+
+                                {status === 'success' && (
+                                    <div className="alert alert-success d-flex align-items-center" role="alert">
+                                        <i className="fa fa-check-circle me-2"></i>
+                                        <span>Your message has been sent successfully! We will get back to you soon.</span>
+                                    </div>
+                                )}
+
+                                {status === 'error' && (
+                                    <div className="alert alert-danger d-flex align-items-center" role="alert">
+                                        <i className="fa fa-exclamation-circle me-2"></i>
+                                        <span>{errorMsg}</span>
+                                    </div>
+                                )}
+
+                                <form onSubmit={handleSubmit}>
                                     <div className="row g-3">
                                         <div className="col-md-6">
                                             <div className="form-floating">
-                                                <input type="text" className="form-control" id="name" placeholder="Your Name" />
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="name"
+                                                    placeholder="Your Name"
+                                                    value={formData.name}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
                                                 <label htmlFor="name">Your Name</label>
                                             </div>
                                         </div>
                                         <div className="col-md-6">
                                             <div className="form-floating">
-                                                <input type="email" className="form-control" id="email" placeholder="Your Email" />
+                                                <input
+                                                    type="email"
+                                                    className="form-control"
+                                                    id="email"
+                                                    placeholder="Your Email"
+                                                    value={formData.email}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
                                                 <label htmlFor="email">Your Email</label>
                                             </div>
                                         </div>
                                         <div className="col-12">
                                             <div className="form-floating">
-                                                <input type="text" className="form-control" id="subject" placeholder="Subject" />
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="subject"
+                                                    placeholder="Subject"
+                                                    value={formData.subject}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
                                                 <label htmlFor="subject">Subject</label>
                                             </div>
                                         </div>
                                         <div className="col-12">
                                             <div className="form-floating">
-                                                <textarea className="form-control" placeholder="Leave a message here" id="message" style={{ height: '100px' }}></textarea>
+                                                <textarea
+                                                    className="form-control"
+                                                    placeholder="Leave a message here"
+                                                    id="message"
+                                                    style={{ height: '150px' }}
+                                                    value={formData.message}
+                                                    onChange={handleChange}
+                                                    required
+                                                ></textarea>
                                                 <label htmlFor="message">Message</label>
                                             </div>
                                         </div>
                                         <div className="col-12">
-                                            <button className="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                            <button
+                                                className="btn btn-primary w-100 py-3"
+                                                type="submit"
+                                                disabled={status === 'loading'}
+                                            >
+                                                {status === 'loading' ? (
+                                                    <>
+                                                        <span className="spinner-border spinner-border-sm me-2"></span>
+                                                        Sending...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <i className="fa fa-paper-plane me-2"></i>
+                                                        Send Message
+                                                    </>
+                                                )}
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

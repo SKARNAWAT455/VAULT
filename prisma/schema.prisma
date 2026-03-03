@@ -84,3 +84,13 @@ model Bid {
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   auction Auction @relation(fields: [auctionId], references: [id], onDelete: Cascade)
 }
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String   @db.Text
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
