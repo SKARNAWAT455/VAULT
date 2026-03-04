@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 import { authOptions } from "@/lib/auth";
+import { AuctionCreateSchema, formatZodErrors } from "@/lib/validators";
 
 export async function POST(req: Request) {
     try {
@@ -11,11 +12,12 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 
-        const { title, description, startingPrice, endTime, imageUrl } = await req.json();
-
-        if (!title || !description || !startingPrice || !endTime) {
-            return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+        const body = await req.json();
+        const parsed = AuctionCreateSchema.safeParse(body);
+        if (!parsed.success) {
+            return NextResponse.json({ error: formatZodErrors(parsed.error) }, { status: 400 });
         }
+        const { title, description, startingPrice, endTime, imageUrl } = parsed.data;
 
         const auction = await prisma.auction.create({
             data: {

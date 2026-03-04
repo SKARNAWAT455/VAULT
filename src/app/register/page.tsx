@@ -12,29 +12,39 @@ export default function RegisterPage() {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
+    // Live password strength checks
+    const checks = {
+        length: password.length >= 8,
+        uppercase: /[A-Z]/.test(password),
+        number: /[0-9]/.test(password),
+    };
+    const allValid = checks.length && checks.uppercase && checks.number;
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
-        setLoading(true);
 
+        if (!allValid) {
+            setError("Please meet all password requirements below.");
+            return;
+        }
+
+        setLoading(true);
         try {
             const res = await fetch("/api/auth/register", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, password }),
             });
 
             const data = await res.json();
-
             if (!res.ok) {
                 setError(data.error || "Something went wrong");
             } else {
                 router.push("/login?registered=true");
             }
-        } catch (err) {
-            setError("Failed to register");
+        } catch {
+            setError("Failed to register. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -50,7 +60,7 @@ export default function RegisterPage() {
                                 className="position-absolute img-fluid w-100 h-100"
                                 src="/img/timmer.jpg"
                                 style={{ objectFit: "cover" }}
-                                alt=""
+                                alt="VAULT Register"
                             />
                         </div>
                     </div>
@@ -63,7 +73,7 @@ export default function RegisterPage() {
                                 Create an account to start bidding on exclusive luxury items.
                             </p>
 
-                            {error && <div className="alert alert-danger">{error}</div>}
+                            {error && <div className="alert alert-danger py-2">{error}</div>}
 
                             <form onSubmit={handleSubmit}>
                                 <div className="row g-3">
@@ -71,7 +81,7 @@ export default function RegisterPage() {
                                         <input
                                             type="text"
                                             className="form-control border-0"
-                                            placeholder="Your Name"
+                                            placeholder="Your Name (min. 2 characters)"
                                             style={{ height: "55px" }}
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
@@ -92,21 +102,37 @@ export default function RegisterPage() {
                                     <div className="col-12">
                                         <input
                                             type="password"
-                                            className="form-control border-0"
+                                            className={`form-control border-0 ${password && (allValid ? "is-valid" : "is-invalid")}`}
                                             placeholder="Your Password"
                                             style={{ height: "55px" }}
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             required
                                         />
+                                        {/* Password strength hints — always visible once user starts typing */}
+                                        {password.length > 0 && (
+                                            <div className="mt-2 ps-1">
+                                                <small className={`d-block ${checks.length ? "text-success" : "text-danger"}`}>
+                                                    {checks.length ? "✓" : "✗"} At least 8 characters
+                                                </small>
+                                                <small className={`d-block ${checks.uppercase ? "text-success" : "text-danger"}`}>
+                                                    {checks.uppercase ? "✓" : "✗"} At least 1 uppercase letter (A-Z)
+                                                </small>
+                                                <small className={`d-block ${checks.number ? "text-success" : "text-danger"}`}>
+                                                    {checks.number ? "✓" : "✗"} At least 1 number (0-9)
+                                                </small>
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="col-12">
                                         <button
                                             className="btn btn-primary w-100 py-3"
                                             type="submit"
-                                            disabled={loading}
+                                            disabled={loading || (password.length > 0 && !allValid)}
                                         >
-                                            {loading ? "Registering..." : "Sign Up"}
+                                            {loading ? (
+                                                <><span className="spinner-border spinner-border-sm me-2" />Registering...</>
+                                            ) : "Sign Up"}
                                         </button>
                                     </div>
                                     <div className="col-12 text-center mt-3">

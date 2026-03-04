@@ -40,16 +40,20 @@ enum Role {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  password      String?
-  role          Role      @default(USER)
-  accounts      Account[]
-  sessions      Session[]
-  bids          Bid[]
+  id                 String     @id @default(cuid())
+  name               String?
+  email              String?    @unique
+  emailVerified      DateTime?
+  image              String?
+  password           String?
+  role               Role       @default(USER)
+  // Account lockout fields
+  loginAttempts      Int        @default(0)
+  lockedUntil        DateTime?
+  accounts           Account[]
+  sessions           Session[]
+  bids               Bid[]
+  passwordResetTokens PasswordResetToken[]
 }
 
 model VerificationToken {
@@ -60,6 +64,18 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  expires   DateTime
+  userId    String
+  used      Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([userId])
+}
+
 model Auction {
   id            String    @id @default(cuid())
   title         String
@@ -68,10 +84,13 @@ model Auction {
   startingPrice Float
   currentPrice  Float
   endTime       DateTime
-  status        String    @default("ACTIVE") // ACTIVE, CLOSED
+  status        String    @default("ACTIVE") // ACTIVE, CLOSED, DELETED
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   bids          Bid[]
+
+  @@index([status])
+  @@index([endTime])
 }
 
 model Bid {
@@ -83,6 +102,9 @@ model Bid {
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   auction Auction @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+
+  @@index([auctionId])
+  @@index([userId])
 }
 
 model ContactMessage {

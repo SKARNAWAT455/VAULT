@@ -4,6 +4,9 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
 
+const MAX_LOGIN_ATTEMPTS = 5;
+const LOCK_DURATION_MS = 15 * 60 * 1000; // 15 minutes
+
 export const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(prisma) as any,
     providers: [
@@ -22,9 +25,40 @@ export const authOptions: NextAuthOptions = {
 
                 if (!user || !user.password) return null;
 
+                // Check account lockout
+                if (user.lockedUntil && user.lockedUntil > new Date()) {
+                    const minutesLeft = Math.ceil((user.lockedUntil.getTime() - Date.now()) / 60000);
+                    throw new Error(`Account locked. Try again in ${minutesLeft} minute(s).`);
+                }
+
                 const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
 
-                if (!isPasswordValid) return null;
+                if (!isPasswordValid) {
+                    const newAttempts = (user.loginAttempts ?? 0) + 1;
+                    const shouldLock = newAttempts >= MAX_LOGIN_ATTEMPTS;
+
+                    await prisma.user.update({
+                        where: { id: user.id },
+                        data: {
+                            loginAttempts: newAttempts,
+                            lockedUntil: shouldLock ? new Date(Date.now() + LOCK_DURATION_MS) : null,
+                        },
+                    });
+
+                    if (shouldLock) {
+                        throw new Error(`Too many failed attempts. Account locked for 15 minutes.`);
+                    }
+
+                    return null;
+                }
+
+                // Successful login — reset attempt counter
+                if (user.loginAttempts > 0) {
+                    await prisma.user.update({
+                        where: { id: user.id },
+                        data: { loginAttempts: 0, lockedUntil: null },
+                    });
+                }
 
                 return {
                     id: user.id,
@@ -35,9 +69,7 @@ export const authOptions: NextAuthOptions = {
             }
         })
     ],
-    session: {
-        strategy: "jwt",
-    },
+    session: { strategy: "jwt" },
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
