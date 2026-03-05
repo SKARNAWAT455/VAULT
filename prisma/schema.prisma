@@ -8,18 +8,18 @@ datasource db {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -40,19 +40,19 @@ enum Role {
 }
 
 model User {
-  id                 String     @id @default(cuid())
-  name               String?
-  email              String?    @unique
-  emailVerified      DateTime?
-  image              String?
-  password           String?
-  role               Role       @default(USER)
+  id                  String               @id @default(cuid())
+  name                String?
+  email               String?              @unique
+  emailVerified       DateTime?
+  image               String?
+  password            String?
+  role                Role                 @default(USER)
   // Account lockout fields
-  loginAttempts      Int        @default(0)
-  lockedUntil        DateTime?
-  accounts           Account[]
-  sessions           Session[]
-  bids               Bid[]
+  loginAttempts       Int                  @default(0)
+  lockedUntil         DateTime?
+  accounts            Account[]
+  sessions            Session[]
+  bids                Bid[]
   passwordResetTokens PasswordResetToken[]
 }
 
@@ -65,12 +65,12 @@ model VerificationToken {
 }
 
 model PasswordResetToken {
-  id        String   @id @default(cuid())
-  token     String   @unique
-  expires   DateTime
-  userId    String
-  used      Boolean  @default(false)
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id      String   @id @default(cuid())
+  token   String   @unique
+  expires DateTime
+  userId  String
+  used    Boolean  @default(false)
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([token])
   @@index([userId])
@@ -85,6 +85,7 @@ model Auction {
   currentPrice  Float
   endTime       DateTime
   status        String    @default("ACTIVE") // ACTIVE, CLOSED, DELETED
+  deletedAt     DateTime?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   bids          Bid[]
@@ -115,4 +116,62 @@ model ContactMessage {
   message   String   @db.Text
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
+}
+
+model InventoryItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  category    String
+  condition   String
+  imageUrl    String?
+  ownerName   String
+  ownerEmail  String
+  status      String   @default("PENDING") // PENDING, STORED, RETURNED
+  createdAt   DateTime @default(now())
+
+  @@index([status])
+}
+
+model RestorationRequest {
+  id          String   @id @default(cuid())
+  itemName    String
+  description String   @db.Text
+  damage      String   @db.Text
+  ownerName   String
+  ownerEmail  String
+  ownerPhone  String
+  status      String   @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED
+  createdAt   DateTime @default(now())
+
+  @@index([status])
+}
+
+model AdvisoryRequest {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  phone         String
+  itemType      String
+  message       String   @db.Text
+  preferredDate String?
+  status        String   @default("PENDING") // PENDING, CONFIRMED, COMPLETED
+  createdAt     DateTime @default(now())
+
+  @@index([status])
+}
+
+model TradeOffer {
+  id              String   @id @default(cuid())
+  offererName     String
+  offererEmail    String
+  offeredItem     String
+  offeredDesc     String   @db.Text
+  offeredImageUrl String?
+  wantedItem      String
+  wantedDesc      String   @db.Text
+  status          String   @default("OPEN") // OPEN, CLOSED
+  createdAt       DateTime @default(now())
+
+  @@index([status])
 }

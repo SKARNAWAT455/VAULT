@@ -8,6 +8,22 @@ import Script from 'next/script'
 export const metadata: Metadata = {
   title: 'VAULT - Luxury Antique E-Auction',
   description: 'Exclusive luxury e-auction platform',
+  openGraph: {
+    title: 'VAULT - Luxury Antique E-Auction',
+    description: 'Exclusive luxury e-auction platform where sophistication meets the thrill of acquiring the extraordinary. Bid boldly, live lavishly.',
+    url: 'https://vault-auction.vercel.app', // Update to production URL
+    siteName: 'VAULT',
+    images: [
+      {
+        url: '/img/carousel-1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'VAULT - Luxury Antique E-Auction Platform',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

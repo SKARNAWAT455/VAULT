@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
       <div className="container-fluid p-0 pb-5">
         <div className="owl-carousel header-carousel position-relative">
           <div className="owl-carousel-item position-relative">
-            <img className="img-fluid" src="/img/carousel-1.jpg" alt="" />
+            <Image className="img-fluid object-fit-cover w-100 h-100" src="/img/carousel-1.jpg" alt="" fill priority />
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(53, 53, 53, .7)' }}>
               <div className="container">
                 <div className="row justify-content-center">
@@ -23,7 +24,7 @@ export default function Home() {
             </div>
           </div>
           <div className="owl-carousel-item position-relative">
-            <img className="img-fluid" src="/img/carousel-2.jpg" alt="" />
+            <Image className="img-fluid object-fit-cover w-100 h-100" src="/img/carousel-2.jpg" alt="" fill />
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(53, 53, 53, .7)' }}>
               <div className="container">
                 <div className="row justify-content-center">
@@ -39,7 +40,7 @@ export default function Home() {
             </div>
           </div>
           <div className="owl-carousel-item position-relative">
-            <img className="img-fluid" src="/img/carousel-3.jpg" alt="" />
+            <Image className="img-fluid object-fit-cover w-100 h-100" src="/img/carousel-3.jpg" alt="" fill />
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(53, 53, 53, .7)' }}>
               <div className="container">
                 <div className="row justify-content-center">
@@ -109,7 +110,7 @@ export default function Home() {
           <div className="row g-0 mx-lg-0">
             <div className="col-lg-6 ps-lg-0" style={{ minHeight: '400px' }}>
               <div className="position-relative h-100">
-                <img className="position-absolute img-fluid w-100 h-100" src="/img/egypt.jpg" style={{ objectFit: 'cover' }} alt="" />
+                <Image className="position-absolute img-fluid w-100 h-100" src="/img/egypt.jpg" style={{ objectFit: 'cover' }} alt="" fill />
               </div>
             </div>
             <div className="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -209,7 +210,7 @@ export default function Home() {
             </div>
             <div className="col-lg-6 pe-lg-0" style={{ minHeight: '400px' }}>
               <div className="position-relative h-100">
-                <img className="position-absolute img-fluid w-100 h-100" src="/img/buddha.jpg" style={{ objectFit: 'cover' }} alt="" />
+                <Image className="position-absolute img-fluid w-100 h-100" src="/img/buddha.jpg" style={{ objectFit: 'cover' }} alt="" fill />
               </div>
             </div>
           </div>
@@ -218,7 +219,7 @@ export default function Home() {
       {/* Feature End */}
 
       {/* Projects Start */}
-      <div className="container-xxl py-5">
+      <div className="container-xxl py-5" id="auctions">
         <div className="container">
           <div className="section-title text-center">
             <h1 className="display-5 mb-5">Our Services</h1>
@@ -226,8 +227,8 @@ export default function Home() {
           <div className="row g-4 portfolio-container">
             <div className="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
               <div className="rounded overflow-hidden">
-                <div className="position-relative overflow-hidden">
-                  <img className="img-fluid w-100" src="/img/inventory1.jpg" alt="" style={{ height: '250px', objectFit: 'cover' }} />
+                <div className="position-relative overflow-hidden" style={{ height: '250px' }}>
+                  <Image className="img-fluid w-100" src="/img/inventory1.jpg" alt="" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className="portfolio-overlay">
                     <Link className="btn btn-square btn-outline-light mx-1" href="/inventorymanagement"><i className="fa fa-link"></i></Link>
                   </div>
@@ -241,8 +242,8 @@ export default function Home() {
             {/* Missing Cards Added */}
             <div className="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
               <div className="rounded overflow-hidden">
-                <div className="position-relative overflow-hidden">
-                  <img className="img-fluid w-100" src="/img/magnifying.jpg" alt="" style={{ height: '250px', objectFit: 'cover' }} />
+                <div className="position-relative overflow-hidden" style={{ height: '250px' }}>
+                  <Image className="img-fluid w-100" src="/img/magnifying.jpg" alt="" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className="portfolio-overlay">
                     <Link className="btn btn-square btn-outline-light mx-1" href="/antiqueprising"><i className="fa fa-link"></i></Link>
                   </div>
@@ -256,8 +257,8 @@ export default function Home() {
 
             <div className="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
               <div className="rounded overflow-hidden">
-                <div className="position-relative overflow-hidden">
-                  <img className="img-fluid w-100" src="/img/restoration.jpg" alt="" style={{ height: '250px', objectFit: 'cover' }} />
+                <div className="position-relative overflow-hidden" style={{ height: '250px' }}>
+                  <Image className="img-fluid w-100" src="/img/restoration.jpg" alt="" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className="portfolio-overlay">
                     <Link className="btn btn-square btn-outline-light mx-1" href="/restoration"><i className="fa fa-link"></i></Link>
                   </div>
@@ -271,8 +272,8 @@ export default function Home() {
 
             <div className="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
               <div className="rounded overflow-hidden">
-                <div className="position-relative overflow-hidden">
-                  <img className="img-fluid w-100" src="/img/garden.jpg" alt="" style={{ height: '250px', objectFit: 'cover' }} />
+                <div className="position-relative overflow-hidden" style={{ height: '250px' }}>
+                  <Image className="img-fluid w-100" src="/img/garden.jpg" alt="" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className="portfolio-overlay">
                     <Link className="btn btn-square btn-outline-light mx-1" href="/clientadvisory"><i className="fa fa-link"></i></Link>
                   </div>
@@ -286,8 +287,8 @@ export default function Home() {
 
             <div className="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.3s">
               <div className="rounded overflow-hidden">
-                <div className="position-relative overflow-hidden">
-                  <img className="img-fluid w-100" src="/img/library.jpg" alt="" style={{ height: '250px', objectFit: 'cover' }} />
+                <div className="position-relative overflow-hidden" style={{ height: '250px' }}>
+                  <Image className="img-fluid w-100" src="/img/library.jpg" alt="" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className="portfolio-overlay">
                     <Link className="btn btn-square btn-outline-light mx-1" href="/onetoonetrade"><i className="fa fa-link"></i></Link>
                   </div>
@@ -301,10 +302,10 @@ export default function Home() {
 
             <div className="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
               <div className="rounded overflow-hidden">
-                <div className="position-relative overflow-hidden">
-                  <img className="img-fluid w-100" src="/img/people.jpg" alt="" style={{ height: '250px', objectFit: 'cover' }} />
+                <div className="position-relative overflow-hidden" style={{ height: '250px' }}>
+                  <Image className="img-fluid w-100" src="/img/people.jpg" alt="" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className="portfolio-overlay">
-                    <Link className="btn btn-square btn-outline-light mx-1" href="/"><i className="fa fa-link"></i></Link>
+                    <Link className="btn btn-square btn-outline-light mx-1" href="/#auctions"><i className="fa fa-link"></i></Link>
                   </div>
                 </div>
                 <div className="border border-5 border-light border-top-0 p-4" style={{ height: '140px' }}>

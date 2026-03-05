@@ -90,7 +90,7 @@ export default function ScriptLoader() {
 
             // Portfolio isotope
             if ($.fn.isotope && $(".portfolio-container").length) {
-                var portfolioIsotope = $(".portfolio-container").isotope({
+                const portfolioIsotope = $(".portfolio-container").isotope({
                     itemSelector: ".portfolio-item",
                     layoutMode: "fitRows",
                 });

@@ -1,0 +1,234 @@
+﻿
+C:\Users\Siddh\OneDrive\Desktop\VAULT\prisma\create-test-user.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\prisma\seed.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\public\lib\easing\easing.min.js
+  1:1    error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:14   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:163  error  A `require()` style import is forbidden                                @typescript-eslint/no-require-imports
+  1:338  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\public\lib\lightbox\js\lightbox.min.js
+  1:1     error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:16    error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:117   error  A `require()` style import is forbidden                                @typescript-eslint/no-require-imports
+  1:191   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:765   error  Unexpected aliasing of 'this' to local variable                        @typescript-eslint/no-this-alias
+  1:801   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:859   error  Unexpected aliasing of 'this' to local variable                        @typescript-eslint/no-this-alias
+  1:1083  error  Unexpected aliasing of 'this' to local variable                        @typescript-eslint/no-this-alias
+  1:1090  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:3136  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:3545  error  Unexpected aliasing of 'this' to local variable                        @typescript-eslint/no-this-alias
+  1:3564  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:3817  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:3972  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:4068  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:4282  error  Unexpected aliasing of 'this' to local variable                        @typescript-eslint/no-this-alias
+  1:4354  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:4606  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:4642  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:5577  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:5728  error  Unexpected aliasing of 'this' to local variable                        @typescript-eslint/no-this-alias
+  1:6036  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:6188  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:6452  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:6538  error  'a' is defined but never used                                          @typescript-eslint/no-unused-vars
+  1:6542  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:7046  error  Unexpected aliasing of 'this' to local variable                        @typescript-eslint/no-this-alias
+  1:7195  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:7367  error  'b' is defined but never used                                          @typescript-eslint/no-unused-vars
+  1:7370  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:7729  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:8405  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  1:8812  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\__tests__\validators.test.ts
+  1:10  error  'z' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\about\page.tsx
+  63:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  91:83  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                 react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\admin\auctions\[id]\edit\page.tsx
+   9:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  28:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\admin\auctions\[id]\page.tsx
+   9:38  error    Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  49:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\admin\auctions\new\page.tsx
+   91:18  error    'err' is defined but never used                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  191:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\admin\history\page.tsx
+  9:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\admin\messages\page.tsx
+  8:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\admin\page.tsx
+  11:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\antiqueprising\page.tsx
+  245:42   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  245:135  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  245:146  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\admin\auctions\[id]\route.ts
+  13:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  32:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  57:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\admin\auctions\[id]\toggle-status\route.ts
+  13:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  34:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\admin\auctions\route.ts
+  11:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  35:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\admin\export\route.ts
+  24:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  82:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\advisory\route.ts
+  10:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  37:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\auction\[id]\bid\route.ts
+  91:22  error  '_' is defined but never used             @typescript-eslint/no-unused-vars
+  99:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\auth\forgot-password\route.ts
+  53:18  error  '_' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\auth\register\route.ts
+  47:18  error  '_' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\contact\route.ts
+  52:18  error  '_' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\inventory\route.ts
+  11:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  38:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\restoration\route.ts
+  10:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  37:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\trade\route.ts
+  11:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  38:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\api\upload\route.ts
+  11:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  53:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\auction\[id]\page.tsx
+  32:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\clientadvisory\page.tsx
+  123:125  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  123:201  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\layout.tsx
+  40:9  warning  Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+  44:9  warning  Do not include stylesheets manually. See: https://nextjs.org/docs/messages/no-css-tags                                                                           @next/next/no-css-tags
+  45:9  warning  Do not include stylesheets manually. See: https://nextjs.org/docs/messages/no-css-tags                                                                           @next/next/no-css-tags
+  46:9  warning  Do not include stylesheets manually. See: https://nextjs.org/docs/messages/no-css-tags                                                                           @next/next/no-css-tags
+  47:9  warning  Do not include stylesheets manually. See: https://nextjs.org/docs/messages/no-css-tags                                                                           @next/next/no-css-tags
+  48:9  warning  Do not include stylesheets manually. See: https://nextjs.org/docs/messages/no-css-tags                                                                           @next/next/no-css-tags
+  49:9  error    Synchronous scripts should not be used. See: https://nextjs.org/docs/messages/no-sync-scripts                                                                    @next/next/no-sync-scripts
+  50:9  error    Synchronous scripts should not be used. See: https://nextjs.org/docs/messages/no-sync-scripts                                                                    @next/next/no-sync-scripts
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\login\page.tsx
+  46:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  96:51  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                 react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\my-bids\page.tsx
+  71:66  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\onetoonetrade\page.tsx
+   79:38   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  123:88   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  234:111  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  239:141  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  264:110  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\page.tsx
+  141:59  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\profile\page.tsx
+  18:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\project\page.tsx
+  32:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\register\page.tsx
+  59:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\restoration\page.tsx
+  195:91  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\service\page.tsx
+   25:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   37:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   49:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   61:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   73:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   85:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  104:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  112:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  120:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\app\whyus\page.tsx
+  83:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\components\AuctionManagementTable.tsx
+  37:13  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\components\BidForm.tsx
+  13:19  error  'session' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  55:18  error  'err' is defined but never used               @typescript-eslint/no-unused-vars
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\components\EditAuctionForm.tsx
+    3:20  error    'useEffect' is defined but never used                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  101:18  error    'err' is defined but never used                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  210:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\components\Navbar.tsx
+  61:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\components\ScriptLoader.tsx
+  10:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  11:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  21:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  22:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  35:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  36:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  42:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  93:17  error  Unexpected var, use let or const instead  no-var
+  97:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Siddh\OneDrive\Desktop\VAULT\src\lib\auth.ts
+  11:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  67:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  77:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  83:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  83:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  84:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  84:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 140 problems (116 errors, 24 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

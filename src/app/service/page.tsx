@@ -87,7 +87,7 @@ export default function Service() {
                                 <div className="p-4 text-center border border-5 border-light border-top-0" style={{ height: '220px' }}>
                                     <h4 className="mb-3">Live E-Auction </h4>
                                     <p>providing all new E-auction</p>
-                                    <Link className="fw-medium" href="/">Read More<i className="fa fa-arrow-right ms-2"></i></Link>
+                                    <Link className="fw-medium" href="/#auctions">Read More<i className="fa fa-arrow-right ms-2"></i></Link>
                                 </div>
                             </div>
                         </div>
