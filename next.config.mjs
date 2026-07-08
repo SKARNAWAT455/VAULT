@@ -30,13 +30,18 @@ const nextConfig = {
         ];
     },
     images: {
-        domains: ["localhost"],
+        remotePatterns: [
+            {
+                protocol: "http",
+                hostname: "localhost",
+            },
+        ],
     },
     eslint: {
-        ignoreDuringBuilds: true,
+        ignoreDuringBuilds: false,
     },
     typescript: {
-        ignoreBuildErrors: true,
+        ignoreBuildErrors: false,
     },
 };
 

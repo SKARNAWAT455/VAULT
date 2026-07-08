@@ -58,7 +58,7 @@ export const AuctionUpdateSchema = AuctionCreateSchema.partial().extend({
 
 export const BidSchema = z.object({
     amount: z
-        .number({ invalid_type_error: "Bid amount must be a number" })
+        .number({ message: "Bid amount must be a number" })
         .positive("Bid must be positive")
         .max(100_000_000, "Bid amount too large"),
 });
@@ -76,5 +76,5 @@ export const ContactSchema = z.object({
 
 /** Returns a formatted string of all Zod validation errors. */
 export function formatZodErrors(error: z.ZodError): string {
-    return error.errors.map((e) => e.message).join(", ");
+    return error.issues.map((e) => e.message).join(", ");
 }

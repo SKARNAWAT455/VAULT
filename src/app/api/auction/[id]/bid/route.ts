@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { authOptions } from "@/lib/auth";
 import { rateLimit } from "@/lib/rateLimit";
 import { BidSchema, formatZodErrors } from "@/lib/validators";
+import { notifyBidUpdate } from "@/lib/sse";
 
 export async function POST(
     req: Request,
@@ -90,6 +91,9 @@ export async function POST(
                 });
             } catch (_) { /* Email failure should not fail the bid */ }
         }
+
+        // Trigger SSE stream update to all connected clients
+        notifyBidUpdate(params.id, { newPrice: result.updatedAuction.currentPrice });
 
         return NextResponse.json({
             message: "Bid placed successfully",
