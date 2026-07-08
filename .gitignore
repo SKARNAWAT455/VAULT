@@ -41,3 +41,7 @@ next-env.d.ts
 # local backup zip
 /VAULT.zip
 
+# user uploaded files
+/public/uploads/
+
+
